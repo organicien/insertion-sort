@@ -1,0 +1,33 @@
+PROCEDURE insertion_sort(tab : ARRAY_OF INTEGER,n : INTEGER)
+VAR
+    i,j,pos : INTEGER
+BEGIN
+    FOR i FROM 1 TO n DO
+       pos =  tab[i];
+       j = i-1;
+       WHILE ((j>=0) and (tab[j]>pos)) DO
+          tab[j+1] = tab [j];
+          j = j-1;
+       END_WHILE
+       tab[j+1] = pos;
+    END_FOR
+    
+END
+
+PROCEDURE write_tab(tab : ARRAY_OF INTEGER,n : INTEGER)
+VAR
+   i: INTEGER
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        write("insert element to the tab");
+        Read(tab[i]);
+    END_FOR
+END
+ALGORITHM insert_sort
+VAR
+    tab: ARRAY_OF INTEGER;
+    tab.length = n: INTEGER;
+BEGIN
+     insertion_sort(tab,n);
+     write_tab(tab,n);
+END
